@@ -27,7 +27,7 @@ Each model is compared based on F1 score, precision, recall, and loss. Key findi
 
 | **Train Instance** | **Engineer Name** | **Regularizer** | **Optimizer** | **Early Stopping** | **Dropout Rate** | **Accuracy** | **F1 Score** | **Recall** | **Precision** |
 |--------------------|-------------------|-----------------|---------------|--------------------|------------------|--------------|--------------|------------|---------------|
-|                    | Lindah Nyambura   |                 |               |                    |                  |              |              |            |               |
+|                    | Lindah Nyambura   |      Dropout    |  RMSprop      |✅ patience=10                |  0.3 → 0.2 → 0.1 |  65%         |0.72(0), 0.52(1)|0.73(0), 0.51(1)|0.71(0), 0.53(1)|
 |                    | Valentine Kalu    |                 |               |                    |                  |              |              |            |               |
 |                    | Kevin Mugisha     |                 |               |                    |                  |              |              |            |               |
 
