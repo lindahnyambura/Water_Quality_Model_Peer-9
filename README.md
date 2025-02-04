@@ -48,6 +48,32 @@ So after 9 trials this model with all those things I mentioned performed better 
 ## Model Comparisons
 
 ### Lindah vs Kenny
+| **Feature**             | **Lindah's Model**                    | **Kenny's Model**                     |
+|-------------------------|---------------------------------------|---------------------------------------|
+| **Architecture**        | 3 layers (128-64-32)                  | 3 layers (20-20-20)                   |
+| **Activation**          | ReLU                                  | ReLU                                  |
+| **Batch Normalization** | No                                    | Yes (After each layer)                |
+| **Dropout**             | 0.3 → 0.2 → 0.1                       | 0.2 (All layers)                      |
+| **Optimizer**           | RMSprop (LR = 0.0005)                 | Adam (LR = 0.0001)                    |
+| **Loss Function**       | Binary Crossentropy                   | Binary Crossentropy                   |
+| **Metrics**             | Accuracy, Precision, Recall, F1       | Accuracy, Precision, Recall, F1       |
+| **Regularization**      | Dropout, Early Stopping (patience=10) | Dropout, Early Stopping (patience=50) |
+| **Class Weights**       | Yes (1.2 for Class 1)                 | No                                    |
+| **Epochs & Batch Size** | Up to 100 (Early Stopping)            | 1000 epochs, Batch size = 64          |
+| **Threshold**           | 0.45 (Custom)                         | 0.5 (Default)                         |
+| **Final Accuracy**      | 66%                                   | 70%                                   |
+| **F1 Score**            | Class 0: 74%, Class 1: 52%            | Class 0: 79%, Class 1: 44%            |
+| **Precision**           | Class 0: 71%, Class 1: 55%            | Class 0: 69%, Class 1: 71%            |
+| **Recall**              | Class 0: 76%, Class 1: 49%            | Class 0: 92%, Class 1: 32%            |
+
+#### Insights
+- Kenny's model has a higher overall accuracy (70%), likely due to batch normalization and Adam optimizer with a very low learning rate (0.0001)
+- Kenny’s model is very strong at identifying non-potable water (Higher class 0 recall of 92%)
+- When Kenny’s model predicts potable water, it is more likely correct (71%) than Lindah's (55%).
+- As F1 score balances precision and recall, Lindah's model is better at consistently identifying potable water (52% vs 44%) likely due to Lindah's approach to addressing class imbalance
+- Lindah's model identifies more potable water samples correctly (Higher recall for class 1: 49% vs. 32%). Kenny’s model is missing a lot of potable water cases (high false negatives)
+- Lindah's model has a better balance between precision and recall. Kenny’s model overemphasized non-potable water, making it conservative in predicting potable water.
+
 
 ### Lindah vs Valentine
 
