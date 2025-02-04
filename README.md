@@ -25,13 +25,28 @@ Each model variation follows these key components:
 - Different combinations of optimizers, regularization techniques, and early stopping criteria.
 - Metrics used: F1 Score, Precision, Recall, Loss
 
-### Experiments & Comparisons
+## Experiments & Comparisons
+### Model Summaries
+### 1. Lindah Nyambura (RMSprop + Dropout)
 
-Each team member tries a unique combination of:
 
-- .
--
--
+### 2. Kevin Kenny Mugisha (Adam + Dropout + Batch Normalization)
+
+
+### 3. Valentine Kalu (...)
+
+
+## Model Comparisons
+### Lindah vs Kenny
+
+
+### Lindah vs Valentine
+
+
+### Kenny vs Valentine
+
+
+
 
 ### Results & Insights
 
@@ -40,13 +55,8 @@ Each model is compared based on F1 score, precision, recall, and loss. Key findi
 
 | **Train Instance** | **Engineer Name** | **Regularizer**             | **Optimizer** | **Early Stopping** | **Dropout Rate** | **Accuracy** | **F1 Score**     | **Recall**       | **Precision**    |
 | ------------------ | ----------------- | --------------------------- | ------------- | ------------------ | ---------------- | ------------ | ---------------- | ---------------- | ---------------- |
-|                    | Lindah Nyambura   | Dropout                     | RMSprop       | ✅ patience=10     | 0.3 → 0.2 → 0.1  | 65%          | 0.72(0), 0.52(1) | 0.73(0), 0.51(1) | 0.71(0), 0.53(1) |
+|                    | Lindah Nyambura   | Dropout                     | RMSprop       | ✅ patience=10     | 0.3 → 0.2 → 0.1  | 66%          | 0.74(0), 0.52(1) | 0.76(0), 0.49(1) | 0.71(0), 0.55(1) |
 |                    | Valentine Kalu    |                             |               |                    |                  |              |                  |                  |                  |
 |                    | Kevin Mugisha     | Dropout, BatchNormalization | Adam          | patience=50        | 0.2              | 70%          | 79%(0), 44%(1)   | 92%(0), 32%(1)   | 69%(0), 71%(1)   |
 
 
-## How to Run the Project
-
-## Contributors
-
-Valentine Kalu
