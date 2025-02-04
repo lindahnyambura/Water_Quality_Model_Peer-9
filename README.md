@@ -31,10 +31,10 @@ Each model variation follows these key components:
 
 ### 1. Lindah Nyambura (RMSprop + Dropout)
 - This model has been developed in four iterations, which have seen the model give different results each time.
-- Each iteration maintains the same optimizer (RMSprop with a learning rate of 0.0005), progressively decreasing Dropout rates (0.3, 0.2, 0.1) to control overfitting, and Early stopping (patience = 10) ensuring the model doesn’t stop training too early
-  1. The initial model had a 64-32-16 architecture and had the worst performance, with an accuracy of 62%, and a Class 1 recall of 0% meaning it failed to predict potable water and was highly biased toward Class 0
-  2. The next model had more neurons (128-64-32) and only from that change accuracy improved to 68% with the Class 1 recall increasing to 39%. However, false positives increased, meaning that some class 0s (non-potable water) were misclassified as potable.
-  3. The third iteration focuses on fixing the class imbalance seen, so the threshold is lowered from 0.5 to 0.4, and class weights (2 for Class 1) are introduced. Class 1 recall increased to 84% and its precision dropped to 45%. It is observed that the model was over-predicting potable water
+- Each iteration maintains the same optimizer (**RMSprop with a learning rate of 0.0005**), progressively decreasing Dropout rates (**0.3, 0.2, 0.1**) to control overfitting, and Early stopping (patience = 10) ensuring the model doesn’t stop training too early
+  1. The initial model had a 64-32-16 architecture and had the worst performance, with an accuracy of 62%, and a Class 1 recall of 0% meaning it failed to predict potable water and was **highly biased** toward Class 0
+  2. The next model had more neurons (128-64-32) and only from that change accuracy improved to 68% with the Class 1 recall increasing to 39%. However, **false positives increased**, meaning that some class 0s (non-potable water) were misclassified as potable.
+  3. The third iteration focuses on fixing the class imbalance seen, so the threshold is lowered from 0.5 to 0.4, and class weights (2 for Class 1) are introduced. Class 1 recall increased to 84% and its precision dropped to 45%. It is observed that the model was **over-predicting** potable water
   4. The final iteration adjusts class weight to 1.2 and threshold to 0.45. The model scores an accuracy of 66%, and balances recall and precision better than the previous models Recall: Class 0 = 0.76, Class 1 = 0.49 Precision: Class 0 = 0.71, Class 1 = 0.55. The threshold found the best tradeoff between capturing potable water and avoiding excessive false positives.
 
 
@@ -57,8 +57,12 @@ So after 9 trials this model with all those things I mentioned performed better 
 
 Each model is compared based on F1 score, precision, recall, and loss. Key findings and performance differences are documented.
 
+(0) - Class 0 (non-potable)
+
+(1) - Class 1 (potable)
+
 | **Train Instance** | **Engineer Name** | **Regularizer**             | **Optimizer** | **Early Stopping**            | **Dropout Rate** | **Accuracy** | **F1 Score**     | **Recall**       | **Precision**    |
 | ------------------ | ----------------- | --------------------------- | ------------- | ----------------------------- | ---------------- | ------------ | ---------------- | ---------------- | ---------------- |
-|                    | Lindah Nyambura   | Dropout                     | RMSprop       | ✅ patience=10                | 0.3 → 0.2 → 0.1  | 66%          | 0.74(0), 0.52(1) | 0.76(0), 0.49(1) | 0.71(0), 0.55(1) |
+|                    | Lindah Nyambura   | Dropout                     | RMSprop       | patience=10, monitor=val_loss| 0.3 → 0.2 → 0.1  | 66%          | 0.74(0), 0.52(1) | 0.76(0), 0.49(1) | 0.71(0), 0.55(1) |
 |                    | Valentine Kalu    |                             |               |                               |                  |              |                  |                  |                  |
 |                    | Kevin Mugisha     | Dropout, BatchNormalization | Adam          | patience=50, monitor=val_loss | 0.2              | 70%          | 79%(0), 44%(1)   | 92%(0), 32%(1)   | 69%(0), 71%(1)   |
