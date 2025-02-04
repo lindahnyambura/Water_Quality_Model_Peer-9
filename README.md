@@ -37,11 +37,17 @@ Each team member tries a unique combination of:
 
 Each model is compared based on F1 score, precision, recall, and loss. Key findings and performance differences are documented.
 
+
 | **Train Instance** | **Engineer Name** | **Regularizer**             | **Optimizer** | **Early Stopping** | **Dropout Rate** | **Accuracy** | **F1 Score**     | **Recall**       | **Precision**    |
 | ------------------ | ----------------- | --------------------------- | ------------- | ------------------ | ---------------- | ------------ | ---------------- | ---------------- | ---------------- |
 |                    | Lindah Nyambura   | Dropout                     | RMSprop       | ✅ patience=10     | 0.3 → 0.2 → 0.1  | 65%          | 0.72(0), 0.52(1) | 0.73(0), 0.51(1) | 0.71(0), 0.53(1) |
 |                    | Valentine Kalu    |                             |               |                    |                  |              |                  |                  |                  |
 |                    | Kevin Mugisha     | Dropout, BatchNormalization | Adam          | patience=50        | 0.2              | 70%          | 79%(0), 44%(1)   | 92%(0), 32%(1)   | 69%(0), 71%(1)   |
+| **Train Instance** | **Engineer Name** | **Regularizer**             | **Optimizer** | **Early Stopping** | **Dropout Rate**      | **Accuracy** | **F1 Score**     | **Recall**       | **Precision**    |
+| ------------------ | ----------------- | --------------------------- | ------------- | ------------------ | --------------------- | ------------ | ---------------- | ---------------- | ---------------- |
+|                    | Lindah Nyambura   | Dropout                     | RMSprop       | ✅ patience=10     | 0.3 → 0.2 → 0.1       | 65%          | 0.72(0), 0.52(1) | 0.73(0), 0.51(1) | 0.71(0), 0.53(1) |
+|                    | Valentine Kalu    |                             |               |                    |                       |              |                  |                  |                  |
+|                    | Kevin Mugisha     | Dropout, BatchNormalization | Adam          | patience=50        | 0.3 → 0.2 → 0.1 → 0.2 | 70%          | 79%(0), 44%(1)   | 92%(0), 32%(1)   | 69%(0), 71%(1)   |
 
 ## How to Run the Project
 
