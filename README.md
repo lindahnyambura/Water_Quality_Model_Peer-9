@@ -35,3 +35,5 @@ Each model is compared based on F1 score, precision, recall, and loss. Key findi
 
 
 ## Contributors
+
+Valentine Kalu
