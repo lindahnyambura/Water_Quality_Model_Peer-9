@@ -76,9 +76,43 @@ So after 9 trials this model with all those things I mentioned performed better 
 
 
 ### Lindah vs Valentine
+| **Feature**             | **Lindah's Model**                    | **Valentine's Model**                     |
+|-------------------------|---------------------------------------|---------------------------------------|
+| **Architecture**        | 3 layers (128-64-32)                  | 3 layers (20-20-20)                   |
+| **Activation**          | ReLU                                  | ReLU                                  |
+| **Batch Normalization** | No                                    | No                |
+| **Dropout**             | 0.3 → 0.2 → 0.1                       | 0.3 → 0.2 → 0.1                   |
+| **Optimizer**           | RMSprop (LR = 0.0005)                 | RMSprop (LR = 0.0005                |
+| **Loss Function**       | Binary Crossentropy                   | Binary Crossentropy                   |
+| **Metrics**             | Accuracy, Precision, Recall, F1       | Accuracy, Precision, Recall, F1       |
+| **Regularization**      | Dropout, Early Stopping (patience=10) | Dropout, Early Stopping (patience=10) |
+| **Class Weights**       | Yes (1.2 for Class 1)                 |Yes (1.2 for Class 1)|
+| **Epochs & Batch Size** | Up to 100 (Early Stopping)            | Up to 100 (Early Stopping)	         |
+| **Threshold**           | 0.45 (Custom)                         | 0.45 (Custom)|
+| **Final Accuracy**      | 66%                                   | 70%                                   |
+| **F1 Score**            | Class 0: 74%, Class 1: 52%            | Class 0: 79%, Class 1: 44%            |
+| **Precision**           | Class 0: 71%, Class 1: 55%            | Class 0: 69%, Class 1: 71%            |
+| **Recall**              | Class 0: 76%, Class 1: 49%            | Class 0: 92%, Class 1: 32%            |
 
 ### Kenny vs Valentine
-
+| **Feature**             | **Kenny's Model**                    | **Valentine's Model**                     |
+|-------------------------|---------------------------------------|---------------------------------------|
+| **Architecture**        | 3 layers (128-64-32)                  | 3 layers (20-20-20)                   |
+| **Activation**          | ReLU                                  | ReLU                                  |
+| **Batch Normalization** | Yes (After each layer)                           | No                |
+| **Dropout**             | 0.2 (All layers)                 | 0.3 → 0.2 → 0.1                   |
+| **Optimizer**           | Adam (LR = 0.0001)              | RMSprop (LR = 0.0005                |
+| **Loss Function**       | Binary Crossentropy                   | Binary Crossentropy                   |
+| **Metrics**             | Accuracy, Precision, Recall, F1       | Accuracy, Precision, Recall, F1       |
+| **Regularization**      | Dropout, Early Stopping (patience=50) | Dropout, Early Stopping (patience=10) |
+| **Class Weights**       | N0             |Yes (1.2 for Class 1)|
+| **Epochs & Batch Size** |1000 epochs, Batch size = 64          | Up to 100 (Early Stopping)	         |
+| **Threshold**           | 0.5 (Default)                       | 0.45 (Custom)|
+| **Final Accuracy**      | 70%                                   | 70%                                   |
+| **F1 Score**            | Class 0: 79%, Class 1: 44%            | Class 0: 74%, Class 1: 52%         |
+| **Precision**           |	Class 0: 69%, Class 1: 71%            | Class 0: 71%, Class 1: 55%           |
+| **Recall**              | Class 0: 92%, Class 1: 32%
+            | Class 0: 76%, Class 1: 49%         |
 ### Results & Insights
 
 Each model is compared based on F1 score, precision, recall, and loss. Key findings and performance differences are documented.
