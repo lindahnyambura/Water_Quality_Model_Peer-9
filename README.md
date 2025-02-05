@@ -126,3 +126,6 @@ Each model is compared based on F1 score, precision, recall, and loss. Key findi
 |                    | Lindah Nyambura   | Dropout                     | RMSprop       | patience=10, monitor=val_loss| 0.3 → 0.2 → 0.1  | 66%          | 0.74(0), 0.52(1) | 0.76(0), 0.49(1) | 0.71(0), 0.55(1) |
 |                    | Valentine Kalu    |   L2                          |   Adam            |   True                            |        0.2          |      0.067        |     0.45             |     0.38             | 0.55                 |
 |                    | Kevin Mugisha     | Dropout, BatchNormalization | Adam          | patience=50, monitor=val_loss | 0.2              | 70%          | 79%(0), 44%(1)   | 92%(0), 32%(1)   | 69%(0), 71%(1)   |
+
+**Here is the link to the video recording**
+[Water Porability Model Video demo](https://drive.google.com/file/d/1p57L_-BZJm8Me4zQqndRuv6r9mUUJz2t/view?usp=sharing)
